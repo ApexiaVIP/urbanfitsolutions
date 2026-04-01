@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import logoMark from "@/assets/logo-mark.png";
 
 const Footer = () => (
@@ -44,21 +44,20 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-primary mb-4">Get in Touch</h4>
-          <ul className="space-y-3 text-sm text-muted-foreground font-body">
-            <li className="flex items-center gap-2">
-              <Phone size={14} className="text-primary" />
-              <a href="tel:+441234567890" className="hover:text-primary transition-colors">01onal 234 567 890</a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail size={14} className="text-primary" />
-              <a href="mailto:info@urbanfitsolutions.co.uk" className="hover:text-primary transition-colors">info@urbanfitsolutions.co.uk</a>
-            </li>
-            <li className="flex items-start gap-2">
-              <MapPin size={14} className="text-primary mt-0.5" />
-              <span>United Kingdom</span>
-            </li>
-          </ul>
+          <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-primary mb-4">Coverage</h4>
+          <div className="flex items-start gap-2 text-sm text-muted-foreground font-body">
+            <MapPin size={14} className="text-primary mt-0.5" />
+            <div>
+              <div>Nationwide UK Service</div>
+              <div className="text-xs mt-1">Based in the heart of England</div>
+            </div>
+          </div>
+          <Link
+            to="/contact"
+            className="inline-block mt-6 bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded hover:opacity-90 transition-opacity"
+          >
+            Get a Quote
+          </Link>
         </div>
       </div>
 

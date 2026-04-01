@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 
 const Contact = () => (
   <>
@@ -37,8 +37,6 @@ const Contact = () => (
 
             <div className="lg:col-span-2 space-y-6">
               {[
-                { icon: Phone, title: "Call Us", detail: "01234 567 890", sub: "Mon-Fri, 8am-6pm" },
-                { icon: Mail, title: "Email Us", detail: "info@urbanfitsolutions.co.uk", sub: "We respond within 24 hours" },
                 { icon: MapPin, title: "Coverage", detail: "Nationwide UK Service", sub: "Based in the heart of England" },
                 { icon: Clock, title: "Working Hours", detail: "Monday - Friday", sub: "8:00 AM - 6:00 PM" },
               ].map((item) => (
