@@ -28,7 +28,7 @@ const CTASection = () => (
           <br />
           <span className="text-gradient-brass">Your Space?</span>
         </h2>
-        <p className="text-lg text-primary-foreground/82 font-body mb-10 max-w-xl mx-auto">
+        <p className="text-lg text-primary-foreground font-body mb-10 max-w-xl mx-auto">
           Get in touch for a free, no-obligation consultation. Let's discuss how we can bring your vision to life.
         </p>
         <Link
