@@ -87,8 +87,8 @@ const HeroSection = () => (
             { value: "100%", label: "Client Satisfaction" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="font-heading text-2xl font-bold text-primary">{stat.value}</div>
-              <div className="text-xs text-primary-foreground/72 font-body uppercase tracking-wider mt-1">
+              <div className="font-heading text-2xl font-bold text-primary-foreground">{stat.value}</div>
+              <div className="text-xs text-primary-foreground/80 font-body uppercase tracking-wider mt-1">
                 {stat.label}
               </div>
             </div>
