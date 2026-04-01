@@ -48,7 +48,7 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-lg text-primary-foreground/82 font-body leading-relaxed max-w-lg mb-10"
+          className="text-lg text-primary-foreground font-body leading-relaxed max-w-lg mb-10"
         >
           From concept to completion, we deliver bespoke shop and office fitouts that
           elevate your brand and captivate your customers. Nationwide service, unrivalled craftsmanship.
