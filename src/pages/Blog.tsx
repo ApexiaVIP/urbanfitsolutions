@@ -87,10 +87,10 @@ const Blog = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card border border-border rounded overflow-hidden group hover:border-primary/30 transition-colors"
+                className="group overflow-hidden rounded border border-border bg-card/95 shadow-sm transition-colors hover:border-primary/30"
               >
                 <div className="h-48 bg-secondary flex items-center justify-center">
-                  <span className="font-heading text-6xl text-primary/10 font-bold select-none">
+                  <span className="select-none font-heading text-6xl font-bold text-primary/20">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>

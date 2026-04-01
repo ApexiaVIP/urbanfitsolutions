@@ -86,7 +86,7 @@ const Services = () => (
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`}
+             className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
               >
                 <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <service.icon className="w-10 h-10 text-primary mb-4" strokeWidth={1.5} />
@@ -108,7 +108,7 @@ const Services = () => (
                     loading="lazy"
                     width={1280}
                     height={960}
-                    className="w-full rounded shadow-elevated aspect-[4/3] object-cover"
+                    className="aspect-[4/3] w-full rounded shadow-elevated object-cover"
                   />
                 </div>
               </motion.div>
@@ -119,7 +119,7 @@ const Services = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-20 bg-card border border-border rounded p-12"
+            className="mt-20 rounded border border-border bg-card/95 p-12 text-center shadow-elevated"
           >
             <h2 className="font-heading text-3xl font-bold text-foreground mb-4">
               Ready to Get Started?

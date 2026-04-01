@@ -45,7 +45,7 @@ const Contact = () => (
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="bg-card border border-border rounded p-6 flex items-start gap-4"
+                  className="flex items-start gap-4 rounded border border-border bg-card/95 p-6 shadow-sm"
                 >
                   <item.icon className="w-5 h-5 text-primary mt-0.5" />
                   <div>
