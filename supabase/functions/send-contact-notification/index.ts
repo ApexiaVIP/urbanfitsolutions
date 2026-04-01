@@ -1,7 +1,11 @@
-import { corsHeaders } from '@supabase/supabase-js/cors'
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
+}
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 const NOTIFICATION_EMAIL = 'jamesacton007@gmail.com'
+const GATEWAY_URL = 'https://connector-gateway.lovable.dev/resend'
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -35,8 +39,25 @@ Deno.serve(async (req) => {
       )
     }
 
-    // Send notification email via Resend (free tier, no API key needed for basic sends)
-    // Using the Supabase built-in email hook
+    // Send notification email via Resend gateway
+    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY')
+    if (!LOVABLE_API_KEY) {
+      console.error('LOVABLE_API_KEY not configured')
+      return new Response(
+        JSON.stringify({ success: true, emailSent: false }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+    if (!RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not configured')
+      return new Response(
+        JSON.stringify({ success: true, emailSent: false }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1a1a1a; border-bottom: 2px solid #C8A55C; padding-bottom: 10px;">
@@ -70,39 +91,28 @@ Deno.serve(async (req) => {
       </div>
     `
 
-    // Use Supabase's built-in auth.admin to send email
-    const { error: emailError } = await supabase.auth.admin.inviteUserByEmail(
-      'noreply@urbanfitsolutions.co.uk',
-      { data: {} }
-    ).catch(() => ({ error: null }))
+    const emailResponse = await fetch(`${GATEWAY_URL}/emails`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+        'X-Connection-Api-Key': RESEND_API_KEY,
+      },
+      body: JSON.stringify({
+        from: 'UrbanFit Solutions <onboarding@resend.dev>',
+        to: [NOTIFICATION_EMAIL],
+        subject: `New Enquiry: ${escapeHtml(name)} - ${projectType || 'General'}`,
+        html: emailHtml,
+        reply_to: email,
+      }),
+    })
 
-    // Send via edge function's fetch to a simple SMTP relay
-    // For now, we'll use the Supabase project's built-in email sending
-    const resendApiKey = Deno.env.get('RESEND_API_KEY')
-    
-    if (resendApiKey) {
-      const emailResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${resendApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: 'UrbanFit Solutions <onboarding@resend.dev>',
-          to: [NOTIFICATION_EMAIL],
-          subject: `New Enquiry: ${name} - ${projectType || 'General'}`,
-          html: emailHtml,
-          reply_to: email,
-        }),
-      })
-
-      if (!emailResponse.ok) {
-        const errData = await emailResponse.text()
-        console.error('Email send error:', errData)
-      }
+    if (!emailResponse.ok) {
+      const errData = await emailResponse.text()
+      console.error('Email send error:', errData)
+      // Still return success since the form data was saved
     } else {
-      console.log('RESEND_API_KEY not set - email notification skipped, but submission saved to database')
-      console.log('Submission from:', name, email)
+      console.log('Notification email sent successfully')
     }
 
     return new Response(
