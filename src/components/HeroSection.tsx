@@ -1,19 +1,33 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-fitout.jpg";
+import heroRetail from "@/assets/hero-fitout.jpg";
+import heroOffice from "@/assets/hero-office.jpg";
 
 const HeroSection = () => (
   <section className="relative hero min-h-screen flex items-center justify-center overflow-hidden">
-    <div className="absolute inset-0">
-      <img
-        src={heroImage}
-        alt="Premium retail fitout by UrbanFit Solutions"
-        className="w-full h-full object-cover"
-        width={1920}
-        height={1080}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/88 via-foreground/72 to-foreground/34" />
+    {/* Split background — retail left, office right */}
+    <div className="absolute inset-0 flex">
+      <div className="w-1/2 relative">
+        <img
+          src={heroRetail}
+          alt="Premium retail fitout by UrbanFit Solutions"
+          className="w-full h-full object-cover"
+          width={960}
+          height={1080}
+        />
+      </div>
+      <div className="w-1/2 relative">
+        <img
+          src={heroOffice}
+          alt="Modern office transformation by UrbanFit Solutions"
+          className="w-full h-full object-cover"
+          width={960}
+          height={1080}
+        />
+      </div>
+      {/* Seamless blend overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/72 to-foreground/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/22 via-transparent to-primary/10" />
     </div>
 
@@ -27,7 +41,7 @@ const HeroSection = () => (
         >
           <div className="h-px w-12 bg-gradient-brass" />
           <span className="text-xs font-body font-semibold uppercase tracking-[0.25em] text-primary-foreground/80">
-            UK's Premier Shop Fitters
+            UK's Premier Shop & Office Fitters
           </span>
         </motion.div>
 
@@ -41,7 +55,7 @@ const HeroSection = () => (
           <br />
           <span className="text-gradient-brass">Extraordinary</span>
           <br />
-          Retail Spaces
+          Retail & Office Spaces
         </motion.h1>
 
         <motion.p
