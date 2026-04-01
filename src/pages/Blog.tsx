@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
 
+import retailTrendsImg from "@/assets/blog/retail-design-trends.jpg";
+import shopFittingCostsImg from "@/assets/blog/shop-fitting-costs.jpg";
+import officeProductivityImg from "@/assets/blog/office-productivity.jpg";
+import sustainableMaterialsImg from "@/assets/blog/sustainable-materials.jpg";
+import storeRebrandingImg from "@/assets/blog/store-rebranding.jpg";
+import lightingDesignImg from "@/assets/blog/lighting-design.jpg";
+
 const blogPosts = [
   {
     slug: "top-10-retail-design-trends-2026",
@@ -12,6 +19,7 @@ const blogPosts = [
     date: "28 Mar 2026",
     category: "Retail Design",
     readTime: "5 min read",
+    image: retailTrendsImg,
   },
   {
     slug: "shop-fitting-costs-uk-guide",
@@ -20,6 +28,7 @@ const blogPosts = [
     date: "21 Mar 2026",
     category: "Shop Fitting",
     readTime: "8 min read",
+    image: shopFittingCostsImg,
   },
   {
     slug: "office-design-productivity-impact",
@@ -28,6 +37,7 @@ const blogPosts = [
     date: "14 Mar 2026",
     category: "Office Fitting",
     readTime: "6 min read",
+    image: officeProductivityImg,
   },
   {
     slug: "sustainable-shopfitting-materials",
@@ -36,6 +46,7 @@ const blogPosts = [
     date: "7 Mar 2026",
     category: "Sustainability",
     readTime: "4 min read",
+    image: sustainableMaterialsImg,
   },
   {
     slug: "rebranding-your-store-checklist",
@@ -44,6 +55,7 @@ const blogPosts = [
     date: "28 Feb 2026",
     category: "Rebranding",
     readTime: "7 min read",
+    image: storeRebrandingImg,
   },
   {
     slug: "lighting-design-retail-sales",
@@ -52,6 +64,7 @@ const blogPosts = [
     date: "21 Feb 2026",
     category: "Retail Design",
     readTime: "5 min read",
+    image: lightingDesignImg,
   },
 ];
 
@@ -89,10 +102,15 @@ const Blog = () => (
                 transition={{ delay: i * 0.1 }}
                 className="group overflow-hidden rounded border border-border bg-card/95 shadow-sm transition-colors hover:border-primary/30"
               >
-                <div className="h-48 bg-secondary flex items-center justify-center">
-                  <span className="select-none font-heading text-6xl font-bold text-primary/20">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading="lazy"
+                    width={800}
+                    height={512}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
