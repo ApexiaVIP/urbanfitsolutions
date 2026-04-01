@@ -2,25 +2,48 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadCaptureForm = () => {
   const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setLoading(false);
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: (formData.get("name") as string).trim(),
+      email: (formData.get("email") as string).trim(),
+      phone: (formData.get("phone") as string)?.trim() || null,
+      projectType: (formData.get("projectType") as string) || null,
+      message: (formData.get("message") as string).trim(),
+    };
+
+    try {
+      const { error } = await supabase.functions.invoke("send-contact-notification", {
+        body: payload,
+      });
+
+      if (error) throw error;
+
       setSubmitted(true);
       toast({
         title: "Enquiry Received!",
         description: "We'll be in touch within 24 hours.",
       });
-    }, 1000);
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -52,6 +75,7 @@ const LeadCaptureForm = () => {
             Full Name *
           </label>
           <input
+            name="name"
             type="text"
             required
             maxLength={100}
@@ -64,6 +88,7 @@ const LeadCaptureForm = () => {
             Email *
           </label>
           <input
+            name="email"
             type="email"
             required
             maxLength={255}
@@ -79,6 +104,7 @@ const LeadCaptureForm = () => {
             Phone
           </label>
           <input
+            name="phone"
             type="tel"
             maxLength={20}
             className="w-full bg-background/70 border border-border rounded px-4 py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
@@ -89,7 +115,10 @@ const LeadCaptureForm = () => {
           <label className="text-xs font-body font-medium uppercase tracking-wider text-muted-foreground mb-1.5 block">
             Project Type
           </label>
-          <select className="w-full bg-background/70 border border-border rounded px-4 py-3 text-sm font-body text-foreground focus:outline-none focus:border-primary transition-colors">
+          <select
+            name="projectType"
+            className="w-full bg-background/70 border border-border rounded px-4 py-3 text-sm font-body text-foreground focus:outline-none focus:border-primary transition-colors"
+          >
             <option value="">Select...</option>
             <option value="shop-fitting">Shop Fitting</option>
             <option value="office-fitting">Office Fitting</option>
@@ -105,6 +134,7 @@ const LeadCaptureForm = () => {
           Tell Us About Your Project *
         </label>
         <textarea
+          name="message"
           required
           maxLength={1000}
           rows={4}
