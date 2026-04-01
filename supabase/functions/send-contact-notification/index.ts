@@ -99,7 +99,7 @@ Deno.serve(async (req) => {
         'X-Connection-Api-Key': RESEND_API_KEY,
       },
       body: JSON.stringify({
-        from: 'UrbanFit Solutions <onboarding@resend.dev>',
+        from: 'UrbanFit Solutions <noreply@urbanfitsolutions.co.uk>',
         to: [NOTIFICATION_EMAIL],
         subject: `New Enquiry: ${escapeHtml(name)} - ${projectType || 'General'}`,
         html: emailHtml,
