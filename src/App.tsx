@@ -8,6 +8,7 @@ import Contact from "./pages/Contact.tsx";
 import Services from "./pages/Services.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
 import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
