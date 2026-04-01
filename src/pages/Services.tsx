@@ -3,8 +3,12 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Store, Building2, PenTool, RefreshCw, Wrench, ClipboardCheck, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import officeImage from "@/assets/office-fitout.jpg";
-import designProcess from "@/assets/design-process.jpg";
+import shopFittingImg from "@/assets/services/shop-fitting.jpg";
+import officeFittingImg from "@/assets/services/office-fitting.jpg";
+import retailDesignImg from "@/assets/services/retail-design.jpg";
+import rebrandingImg from "@/assets/services/rebranding.jpg";
+import bespokeJoineryImg from "@/assets/services/bespoke-joinery.jpg";
+import projectMgmtImg from "@/assets/services/project-management.jpg";
 
 const services = [
   {
@@ -12,42 +16,42 @@ const services = [
     title: "Shop Fitting",
     description: "Complete retail fitouts for high street shops, boutiques, flagship stores, and pop-up retail spaces. We handle everything from initial strip-out through to final snagging.",
     features: ["Bespoke joinery & fixtures", "Display systems & shelving", "Lighting design & installation", "Flooring & wall finishes", "Signage & branding elements"],
-    image: officeImage,
+    image: shopFittingImg,
   },
   {
     icon: Building2,
     title: "Office Fitting",
     description: "Transform your workspace into an environment that inspires productivity and reflects your company culture. From single offices to multi-floor corporate headquarters.",
     features: ["Glass partitioning systems", "Reception & breakout areas", "Meeting room fit-outs", "IT infrastructure integration", "Acoustic treatment"],
-    image: designProcess,
+    image: officeFittingImg,
   },
   {
     icon: PenTool,
     title: "Retail Design",
     description: "Our in-house design team creates compelling retail environments that drive footfall and maximise sales per square foot.",
     features: ["Concept development", "3D visualisation & renders", "Technical drawings", "Material specification", "Brand-aligned interiors"],
-    image: officeImage,
+    image: retailDesignImg,
   },
   {
     icon: RefreshCw,
     title: "Rebranding & Refits",
     description: "Breathe new life into your existing space. Whether you're refreshing your brand or modernising outdated interiors, we minimise disruption while maximising impact.",
     features: ["Brand refresh installations", "Phased refurbishment", "Weekend & overnight works", "Minimal trading disruption", "Multi-site coordination"],
-    image: designProcess,
+    image: rebrandingImg,
   },
   {
     icon: Wrench,
     title: "Bespoke Joinery",
     description: "Handcrafted furniture, counters, and display units built to your exact specifications by our experienced workshop team.",
     features: ["Custom counters & displays", "Feature walls & panelling", "Cash desk solutions", "Shelving systems", "Premium material finishes"],
-    image: officeImage,
+    image: bespokeJoineryImg,
   },
   {
     icon: ClipboardCheck,
     title: "Project Management",
     description: "End-to-end project management ensuring your fitout is delivered on time, within budget, and to the highest standards.",
     features: ["Programme scheduling", "Cost management", "Subcontractor coordination", "Health & safety compliance", "Quality assurance"],
-    image: designProcess,
+    image: projectMgmtImg,
   },
 ];
 
@@ -82,7 +86,7 @@ const Services = () => (
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`}
               >
                 <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <service.icon className="w-10 h-10 text-primary mb-4" strokeWidth={1.5} />
@@ -102,6 +106,8 @@ const Services = () => (
                     src={service.image}
                     alt={service.title}
                     loading="lazy"
+                    width={1280}
+                    height={960}
                     className="w-full rounded shadow-elevated aspect-[4/3] object-cover"
                   />
                 </div>
