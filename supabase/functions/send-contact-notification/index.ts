@@ -91,6 +91,8 @@ Deno.serve(async (req) => {
       </div>
     `
 
+    const plainText = `New Enquiry from UrbanFit Solutions Website\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nProject Type: ${projectType || 'Not specified'}\n\nMessage:\n${message}\n\n---\nSent from the UrbanFit Solutions website contact form.`
+
     const emailResponse = await fetch(`${GATEWAY_URL}/emails`, {
       method: 'POST',
       headers: {
@@ -101,8 +103,9 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         from: 'UrbanFit Solutions <noreply@urbanfitsolutions.co.uk>',
         to: [NOTIFICATION_EMAIL],
-        subject: `New Enquiry: ${escapeHtml(name)} - ${projectType || 'General'}`,
+        subject: `New Enquiry: ${name} - ${projectType || 'General'}`,
         html: emailHtml,
+        text: plainText,
         reply_to: email,
       }),
     })
