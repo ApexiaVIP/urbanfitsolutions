@@ -17,10 +17,10 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-xl shadow-sm">
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logoMark} alt="UrbanFit Solutions" className="h-10 w-10" />
+          <img src={logoMark} alt="UrbanFit Solutions" className="h-10 w-10" loading="eager" width={1024} height={1024} />
           <div className="flex flex-col leading-tight">
             <span className="font-heading text-lg font-semibold tracking-wide text-foreground">
               URBAN<span className="text-primary">FIT</span>
@@ -47,7 +47,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/contact"
-            className="bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded hover:opacity-90 transition-opacity"
+            className="bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded shadow-brass hover:opacity-90 transition-opacity"
           >
             Get a Quote
           </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="md:hidden bg-background/95 border-b border-border overflow-hidden backdrop-blur-xl"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link) => (
@@ -88,7 +88,7 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded text-center"
+                className="bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded text-center shadow-brass"
               >
                 Get a Quote
               </Link>

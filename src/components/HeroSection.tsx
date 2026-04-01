@@ -13,7 +13,8 @@ const HeroSection = () => (
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/96 via-background/84 to-background/38" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-accent/10" />
     </div>
 
     <div className="relative container mx-auto px-6 pt-20">
@@ -68,7 +69,7 @@ const HeroSection = () => (
           </Link>
           <Link
             to="/portfolio"
-            className="border border-primary/30 text-primary px-8 py-4 font-body font-semibold uppercase tracking-wider text-sm rounded inline-flex items-center justify-center gap-2 hover:bg-primary/5 transition-colors"
+            className="border border-primary/30 bg-background/55 text-primary px-8 py-4 font-body font-semibold uppercase tracking-wider text-sm rounded inline-flex items-center justify-center gap-2 hover:bg-primary/10 transition-colors backdrop-blur-sm"
           >
             View Our Work
           </Link>
