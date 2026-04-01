@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-fitout.jpg";
 
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section className="relative hero min-h-screen flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0">
       <img
         src={heroImage}
@@ -13,8 +13,8 @@ const HeroSection = () => (
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/96 via-background/84 to-background/38" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-accent/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground/88 via-foreground/72 to-foreground/34" />
+      <div className="absolute inset-0 bg-gradient-to-t from-foreground/22 via-transparent to-primary/10" />
     </div>
 
     <div className="relative container mx-auto px-6 pt-20">
@@ -26,7 +26,7 @@ const HeroSection = () => (
           className="flex items-center gap-3 mb-6"
         >
           <div className="h-px w-12 bg-gradient-brass" />
-          <span className="text-xs font-body font-semibold uppercase tracking-[0.25em] text-primary">
+          <span className="text-xs font-body font-semibold uppercase tracking-[0.25em] text-primary-foreground/80">
             UK's Premier Shop Fitters
           </span>
         </motion.div>
@@ -35,7 +35,7 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="font-heading text-5xl md:text-7xl font-bold leading-[1.05] text-foreground mb-6"
+          className="font-heading text-5xl md:text-7xl font-bold leading-[1.05] text-primary-foreground mb-6"
         >
           We Build
           <br />
@@ -48,7 +48,7 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-lg text-muted-foreground font-body leading-relaxed max-w-lg mb-10"
+          className="text-lg text-primary-foreground/82 font-body leading-relaxed max-w-lg mb-10"
         >
           From concept to completion, we deliver bespoke shop and office fitouts that
           elevate your brand and captivate your customers. Nationwide service, unrivalled craftsmanship.
@@ -69,7 +69,7 @@ const HeroSection = () => (
           </Link>
           <Link
             to="/portfolio"
-            className="border border-primary/30 bg-background/55 text-primary px-8 py-4 font-body font-semibold uppercase tracking-wider text-sm rounded inline-flex items-center justify-center gap-2 hover:bg-primary/10 transition-colors backdrop-blur-sm"
+            className="border border-primary-foreground/24 bg-primary-foreground/10 text-primary-foreground px-8 py-4 font-body font-semibold uppercase tracking-wider text-sm rounded inline-flex items-center justify-center gap-2 hover:bg-primary-foreground/18 transition-colors backdrop-blur-sm"
           >
             View Our Work
           </Link>
@@ -79,7 +79,7 @@ const HeroSection = () => (
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="flex gap-12 mt-16 pt-8 border-t border-border"
+          className="flex gap-12 mt-16 pt-8 border-t border-primary-foreground/18"
         >
           {[
             { value: "500+", label: "Projects Completed" },
@@ -88,7 +88,7 @@ const HeroSection = () => (
           ].map((stat) => (
             <div key={stat.label}>
               <div className="font-heading text-2xl font-bold text-primary">{stat.value}</div>
-              <div className="text-xs text-muted-foreground font-body uppercase tracking-wider mt-1">
+              <div className="text-xs text-primary-foreground/72 font-body uppercase tracking-wider mt-1">
                 {stat.label}
               </div>
             </div>

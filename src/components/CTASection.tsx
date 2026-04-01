@@ -14,7 +14,7 @@ const CTASection = () => (
         width={1280}
         height={864}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/88 via-background/78 to-background/72" />
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground/84 via-foreground/72 to-foreground/64" />
     </div>
 
     <div className="relative container mx-auto px-6 text-center">
@@ -23,12 +23,12 @@ const CTASection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-6 max-w-3xl mx-auto">
+        <h2 className="font-heading text-4xl md:text-6xl font-bold text-primary-foreground mb-6 max-w-3xl mx-auto">
           Ready to Transform
           <br />
           <span className="text-gradient-brass">Your Space?</span>
         </h2>
-        <p className="text-lg text-muted-foreground font-body mb-10 max-w-xl mx-auto">
+        <p className="text-lg text-primary-foreground/82 font-body mb-10 max-w-xl mx-auto">
           Get in touch for a free, no-obligation consultation. Let's discuss how we can bring your vision to life.
         </p>
         <Link

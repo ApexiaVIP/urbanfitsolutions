@@ -17,15 +17,15 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-xl shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-primary-foreground/12 bg-foreground/72 backdrop-blur-xl shadow-sm">
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
         <Link to="/" className="flex items-center gap-3">
           <img src={logoMark} alt="UrbanFit Solutions" className="h-10 w-10" loading="eager" width={1024} height={1024} />
           <div className="flex flex-col leading-tight">
-            <span className="font-heading text-lg font-semibold tracking-wide text-foreground">
+            <span className="font-heading text-lg font-semibold tracking-wide text-primary-foreground">
               URBAN<span className="text-primary">FIT</span>
             </span>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-body">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-primary-foreground/72 font-body">
               Solutions
             </span>
           </div>
@@ -36,10 +36,10 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-body font-medium tracking-wide uppercase transition-colors hover:text-primary ${
+              className={`text-sm font-body font-medium tracking-wide uppercase transition-colors hover:text-primary-foreground ${
                 location.pathname === link.path
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                  ? "text-primary-foreground"
+                  : "text-primary-foreground/72"
               }`}
             >
               {link.label}
@@ -55,7 +55,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground"
+          className="md:hidden text-primary-foreground"
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -68,7 +68,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 border-b border-border overflow-hidden backdrop-blur-xl"
+            className="md:hidden bg-foreground/92 border-b border-primary-foreground/12 overflow-hidden backdrop-blur-xl"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link) => (
@@ -78,8 +78,8 @@ const Navbar = () => {
                   onClick={() => setOpen(false)}
                   className={`text-sm font-body font-medium tracking-wide uppercase ${
                     location.pathname === link.path
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                      ? "text-primary-foreground"
+                      : "text-primary-foreground/72"
                   }`}
                 >
                   {link.label}
