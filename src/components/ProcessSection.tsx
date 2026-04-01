@@ -9,7 +9,7 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section className="py-24 bg-card">
+  <section className="py-24 bg-secondary/45">
     <div className="container mx-auto px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <motion.div
@@ -63,7 +63,7 @@ const ProcessSection = () => (
             height={864}
             className="rounded shadow-elevated"
           />
-          <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded">
+          <div className="absolute -bottom-6 -left-6 rounded bg-primary p-6 text-primary-foreground shadow-brass">
             <div className="font-heading text-3xl font-bold">15+</div>
             <div className="text-xs font-body uppercase tracking-wider">Years of Excellence</div>
           </div>

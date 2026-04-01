@@ -36,7 +36,7 @@ const services = [
 ];
 
 const ServicesOverview = () => (
-  <section className="py-24 bg-card">
+  <section className="py-24 bg-secondary/45">
     <div className="container mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ const ServicesOverview = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group bg-background border border-border rounded p-8 hover:border-primary/30 transition-all duration-300"
+            className="group rounded border border-border bg-card/90 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-elevated"
           >
             <service.icon className="w-8 h-8 text-primary mb-5" strokeWidth={1.5} />
             <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{service.title}</h3>

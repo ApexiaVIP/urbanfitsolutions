@@ -51,7 +51,7 @@ const TestimonialsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            className="bg-card border border-border rounded p-8 relative"
+            className="relative rounded border border-border bg-card/95 p-8 shadow-sm"
           >
             <Quote className="w-8 h-8 text-primary/20 mb-4" />
             <div className="flex gap-1 mb-4">

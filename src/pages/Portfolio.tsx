@@ -57,7 +57,7 @@ const Portfolio = () => (
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent flex flex-col justify-end p-6">
+                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background/90 via-background/45 to-transparent p-6">
                   <span className="text-xs text-primary font-body uppercase tracking-wider mb-1">
                     {project.category} · {project.location}
                   </span>

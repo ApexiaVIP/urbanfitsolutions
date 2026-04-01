@@ -3,12 +3,12 @@ import { MapPin } from "lucide-react";
 import logoMark from "@/assets/logo-mark.png";
 
 const Footer = () => (
-  <footer className="bg-card border-t border-border">
+  <footer className="bg-secondary/55 border-t border-border">
     <div className="container mx-auto px-6 py-16">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-1">
           <Link to="/" className="flex items-center gap-3 mb-4">
-            <img src={logoMark} alt="UrbanFit Solutions" className="h-10 w-10" />
+            <img src={logoMark} alt="UrbanFit Solutions" className="h-10 w-10" loading="lazy" width={1024} height={1024} />
             <div className="flex flex-col leading-tight">
               <span className="font-heading text-lg font-semibold text-foreground">
                 URBAN<span className="text-primary">FIT</span>
@@ -54,7 +54,7 @@ const Footer = () => (
           </div>
           <Link
             to="/contact"
-            className="inline-block mt-6 bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded hover:opacity-90 transition-opacity"
+            className="inline-block mt-6 bg-gradient-brass text-primary-foreground px-6 py-2.5 text-sm font-body font-semibold uppercase tracking-wider rounded shadow-brass hover:opacity-90 transition-opacity"
           >
             Get a Quote
           </Link>

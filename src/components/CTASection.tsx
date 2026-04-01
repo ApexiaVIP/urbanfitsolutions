@@ -14,7 +14,7 @@ const CTASection = () => (
         width={1280}
         height={864}
       />
-      <div className="absolute inset-0 bg-background/85" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/88 via-background/78 to-background/72" />
     </div>
 
     <div className="relative container mx-auto px-6 text-center">
